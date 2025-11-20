@@ -35,9 +35,9 @@ An LSTM-based sequence-to-sequence model was implemented using TensorFlow/Keras:
     *   `RepeatVector(forecast_horizon)`: Repeats the output vector from the first LSTM layer `forecast_horizon` times to match the desired output sequence length.
     *   `LSTM(units=100, return_sequences=True)`: Processes the repeated vector and outputs a sequence.
     *   `TimeDistributed(Dense(units=num_features))`: Applies a Dense layer to each timestep of the output sequence to predict all features for each forecast step.
-*   Total Trainable Parameters**: 125,810
-*   Optimizer**: `adam`
-*   Loss Function**: `mean_squared_error`
+*   Total Trainable Parameters: 125,810
+*   Optimizer: `adam`
+*   Loss Function: `mean_squared_error`
 
 3. Model Training & Optimization
 
@@ -86,11 +86,11 @@ XAI Interpretation Snippets (for `Feature_1` at Forecast Timestep 1):
     *   Interpretation: Prediction driven mainly by `Feature_1` values from the last 5-7 hours (positive attributions). `Feature_5` also contributed positively. Moderate negative attribution from 'hour' suggested a time-of-day adjustment.
     *   Attribution Magnitude Example (Last Hour, for Feature_1): ~0.002 (positive)
 
-*   Forecast Window 2 (Sample 2)**:
+*   Forecast Window 2 (Sample 2):
     *   Interpretation: `Feature_1`'s prediction heavily depended on its values within the last 10 hours, with mixed positive/negative influences. `Feature_2` showed small but consistent positive attribution. 'day_of_year' contributed positively across the input window, indicating a seasonal adjustment.
     *   Attribution Magnitude Example (Last Hour, for Feature_5): ~0.0015 (positive)
 
-*   Forecast Window 3 (Sample 3)**:
+*   Forecast Window 3 (Sample 3):
     *   Interpretation: Strongest impact from `Feature_1` values in the last 3-5 hours. A notable negative attribution from `Feature_4` in the last hour pushed the `Feature_1` prediction downwards. `Feature_3` from the mid-look-back window showed minor positive influence.
     *   Attribution Magnitude Example (Last Hour, for Feature_4): ~-0.005 (negative)
 
