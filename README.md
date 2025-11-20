@@ -16,7 +16,7 @@ Table of Contents
 *   Data Points: 3500 hourly observations.
 *   **Temporal Patterns**: Includes linear, non-linear, and exponential trends, daily, weekly, and monthly seasonality, autoregressive components, noise, and inter-feature correlation.
 Preprocessing Steps
-1. Missing Value Check: Confirmed no missing values in the generated data.
+1. Missing Value Check: Confirmed no missing values in the data.
 2. Feature Engineering: Extracted `hour`, `day_of_week`, `day_of_year`, `month`, `year` from the datetime index.
 3. Scaling: All 10 numerical features were scaled using `MinMaxScaler`.
 4. Sequence Creation: Data was transformed into input-output sequences for the LSTM model:
@@ -24,7 +24,7 @@ Preprocessing Steps
     *   `forecast_horizon`: 12 timesteps (e.g., next 12 hours).
     *   Input sequences (`X`): (Number of samples, 24, 10)
     *   Target sequences (`y`): (Number of samples, 12, 10)
-5.  **Data Split**: Chronological split into Training (70%), Validation (15%), and Test (15%) sets.
+5. Data Split: Chronological split into Training (70%), Validation (15%), and Test (15%) sets.
 
 2. Deep Learning Model (LSTM) Implementation
 
@@ -51,8 +51,8 @@ An LSTM-based sequence-to-sequence model was implemented using TensorFlow/Keras:
 
 The trained model was evaluated on the held-out test set, and predictions were inverse-transformed to the original scale. The following metrics were calculated:
 
-*   **Overall Average RMSE**: `18.3755`
-*   **Overall Average MAE**: `16.7857`
+* Overall Average RMSE: `18.3755`
+* Overall Average MAE: `16.7857`
 
 Performance per Feature:
 
